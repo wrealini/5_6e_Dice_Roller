@@ -4,28 +4,26 @@ let me;
 
 function saveDID() {
 	let did = document.getElementById("discord-id").value;
-	//localStorage.setItem("discordid", did);
-	let d = new Date();
-    d.setFullYear(2100);
-	let newcookie = "discordid=".concat(did,"; expires=",d.toUTCString());
-	document.cookie = newcookie;
+	localStorage.setItem("discordid", did);
+	// let d = new Date();
+    // d.setFullYear(2100);
+	// let newcookie = "discordid=".concat(did,"; expires=",d.toUTCString());
+	// document.cookie = newcookie;
 }
 
 function loadDID() {
-	// document.getElementById("discord-id").value = localStorage.getItem("discordid");
-	let did = document.cookie;
-	let didArray = did.split("discordid=");
-	if (didArray.length == 1) {
-		did = didArray[0];
-	} else {
-    	did = didArray[1];
-    }
-	didArray = did.split("; expires=");
-	did = didArray[0];
-	document.getElementById("discord-id").value = did;
+	document.getElementById("discord-id").value = localStorage.getItem("discordid");
+	// let did = "7";//document.cookie;
+	// let didArray = did.split("discordid=");
+	// if (didArray.length == 1) {
+		// did = didArray[0];
+	// } else {
+    	// did = didArray[1];
+    // }
+	// didArray = did.split("; expires=");
+	// did = didArray[0];
+	// document.getElementById("discord-id").value = did;
 }
-
-loadDID();
 
 function roll(nameow,diceow) {
     let name = document.getElementById("roll-name").value || "Check";
