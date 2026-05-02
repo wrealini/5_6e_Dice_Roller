@@ -1,0 +1,25 @@
+{
+  "manifestVersion": 1,
+  "name": "5.6e Dice Roller",
+  "summary": "A Symbiote to roll dice with advantage or disadvantage using the 5.6e rules for the Sigil Adventurer's Guild Discord server.",
+  "entryPoint": "/roll.html",
+  "descriptionFilePath": "/readme.md",
+  "api": {
+    "version": "0.1",
+    "subscriptions": {
+      "dice": {
+        "onRollResults": "handleRollResult"
+      }
+    }
+  },
+  "environment": {
+    "webViewBackgroundColor": "#000000",
+    "capabilities": [
+      "runInBackground"
+    ],
+    "extras": [
+      "fonts",
+      "colorStyles"
+    ]
+  }
+}
