@@ -3,26 +3,18 @@ let isGM = false;
 let me;
 
 function saveDID() {
-	let did = document.getElementById("discord-id").value;
-	localStorage.setItem("discordid", did);
-	// let d = new Date();
-    // d.setFullYear(2100);
-	// let newcookie = "discordid=".concat(did,"; expires=",d.toUTCString());
-	// document.cookie = newcookie;
+	let discordid = document.getElementById("discord-id").value;
+	TS.localStorage.global.setBlob(discordid);
 }
 
 function loadDID() {
-	document.getElementById("discord-id").value = localStorage.getItem("discordid");
-	// let did = "7";//document.cookie;
-	// let didArray = did.split("discordid=");
-	// if (didArray.length == 1) {
-		// did = didArray[0];
-	// } else {
-    	// did = didArray[1];
-    // }
-	// didArray = did.split("; expires=");
-	// did = didArray[0];
-	// document.getElementById("discord-id").value = did;
+	try {
+		TS.localStorage.global.getBlob().then((discordid) => {
+			document.getElementById("discord-id").value = discordid;
+		});
+		return
+	} catch (error) {
+	}
 }
 
 function roll(nameow,diceow) {
